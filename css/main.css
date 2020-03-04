@@ -1,0 +1,84 @@
+html {
+  width: 100%;
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 5em;
+  grid-gap: .5em;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 20em 20em 40px;
+      grid-template-rows: 20em 20em 40px;
+      grid-template-areas: "welcome feature" "git git" "foot foot";
+}
+
+.navbar {
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  display: -ms-grid;
+  display: grid;
+  background-color: green;
+  width: 100%;
+  height: 7vh;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "projects prof home contact";
+}
+
+.navbar a {
+  text-align: center;
+  display: block;
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
+  background-color: red;
+}
+
+.navbar .home {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: home;
+}
+
+.navbar .profile {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: prof;
+}
+
+.navbar .projects {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: projects;
+}
+
+.navbar .contact {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: contact;
+}
+
+.repo {
+  color: red;
+}
+
+.repo img {
+  width: 100%;
+}
+
+.welcome {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: welcome;
+}
+
+.repo.feature {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: feature;
+}
+/*# sourceMappingURL=main.css.map */
