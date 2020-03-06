@@ -1,13 +1,22 @@
 html {
   width: 100%;
+  --pri-color: lightblue;
+  --sec-color: orange;
+  --ter-color: blue;
+  --navbar-color:black;
+  --navbar-text:white;
+  --navbar-hover: rgb(14, 14, 14);
+  --repo-margin: 0.1em;
+  font-family: "Fira Code";
 }
 
 body {
+  background-color: var(--sec-color);
   display: -ms-grid;
   display: grid;
   width: 100%;
   margin: 0;
-  padding-bottom: 7vh;
+  padding-bottom: 5em;
   grid-gap: .5em;
   -ms-grid-columns: 2fr 1fr;
       grid-template-columns: 2fr 1fr;
@@ -16,28 +25,47 @@ body {
       grid-template-areas: "welcome welcome" "git git" "foot foot";
 }
 
+.bgpoly {
+  position: absolute;
+  top: 0;
+  display: block;
+  background-color: var(--pri-color);
+  z-index: -1;
+  height: 80vh;
+  width: 100%;
+  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 40%);
+          clip-path: polygon(0 100%, 0 0, 100% 0, 100% 40%);
+}
+
 .navbar {
-  --navbar-color:black;
-  --navbar-text:white;
-  --navbar-hover: rgb(54, 54, 54);
   position: fixed;
   overflow: hidden;
   bottom: 0;
-  display: -ms-grid;
-  display: grid;
-  background-color: black;
+  display: -ms-inline-grid;
+  display: inline-grid;
+  background-color: transparent;
   width: 100%;
   height: 7vh;
+  -webkit-column-gap: none;
+          column-gap: none;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas: "projects prof home contact";
 }
 
+.navbar .active {
+  -webkit-clip-path: polygon(0 0, 40% 0, 50% 10%, 60% 0, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 40% 0, 50% 10%, 60% 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .navbar a {
-  text-align: center;
-  display: block;
-  -ms-grid-column-align: stretch;
-      justify-self: stretch;
+  width: 100.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: var(--navbar-color);
   color: var(--navbar-text);
   text-decoration: none;
@@ -45,6 +73,10 @@ body {
 
 .navbar a:hover {
   background-color: var(--navbar-hover);
+}
+
+.navbar a p {
+  margin: auto;
 }
 
 .navbar .home {
@@ -87,13 +119,21 @@ body {
 }
 
 .github {
-  margin: .2em;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: git;
   overflow-x: auto;
-  white-space: nowrap;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -103,10 +143,25 @@ body {
 
 .repo {
   display: inline-block;
-  background-color: blue;
+  background-color: var(--ter-color);
   padding: .75em;
   border-radius: 1em;
   width: 40vw;
+  margin: var(--repo-margin);
+}
+
+.repo::before {
+  content: "";
+  display: block;
+  color: transparent;
+  width: var(--repo-margin)/2;
+}
+
+.repo::after {
+  content: "";
+  display: block;
+  color: transparent;
+  width: var(--repo-margin);
 }
 
 .repo img {
@@ -128,5 +183,12 @@ body {
   width: 100%;
   text-align: center;
   font-size: 0.75em;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
 }
 /*# sourceMappingURL=main.css.map */
