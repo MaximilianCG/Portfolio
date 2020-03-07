@@ -6,7 +6,7 @@ html {
   --navbar-color:black;
   --navbar-text:white;
   --navbar-hover: rgb(14, 14, 14);
-  --repo-margin: 0.1em;
+  --repo-margin: 0.75em;
   font-family: "Fira Code";
 }
 
@@ -41,8 +41,8 @@ body {
   position: fixed;
   overflow: hidden;
   bottom: 0;
-  display: -ms-inline-grid;
-  display: inline-grid;
+  display: -ms-grid;
+  display: grid;
   background-color: transparent;
   width: 100%;
   height: 7vh;
@@ -59,7 +59,7 @@ body {
 }
 
 .navbar a {
-  width: 100.5%;
+  min-width: 105%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,27 +141,31 @@ body {
   display: none;
 }
 
-.repo {
+.github::after {
   display: inline-block;
+  background-color: transparent;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(var(--repo-margin)/2);
+          flex: 0 0 calc(var(--repo-margin)/2);
+  content: "";
+}
+
+.github::before {
+  display: inline-block;
+  background-color: transparent;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(var(--repo-margin)/2);
+          flex: 0 0 calc(var(--repo-margin)/2);
+  content: "";
+}
+
+.repo {
+  display: block;
   background-color: var(--ter-color);
   padding: .75em;
   border-radius: 1em;
-  width: 40vw;
-  margin: var(--repo-margin);
-}
-
-.repo::before {
-  content: "";
-  display: block;
-  color: transparent;
-  width: var(--repo-margin)/2;
-}
-
-.repo::after {
-  content: "";
-  display: block;
-  color: transparent;
-  width: var(--repo-margin);
+  min-width: 200px;
+  margin: calc(var(--repo-margin)/2);
 }
 
 .repo img {
@@ -183,12 +187,5 @@ body {
   width: 100%;
   text-align: center;
   font-size: 0.75em;
-}
-
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow-x: auto;
 }
 /*# sourceMappingURL=main.css.map */
