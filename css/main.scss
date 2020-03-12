@@ -6,7 +6,7 @@ html{
 	--navbar-color:black;
 	--navbar-text:white;
 	--navbar-hover: rgb(14, 14, 14);
-	--repo-margin: 0.75em;
+	--repo-margin: 0.25em;
 	font-family: "Fira Code";
 }
 
@@ -34,7 +34,7 @@ body{
 	z-index: -1;
 	height: 80vh;
 	width: 100%;
-	clip-path: polygon(0 100%, 0 0, 100% 0, 100% 40%);
+	clip-path: polygon(0 100%, 0 0, 100% 0, 100% 50%);
 }
 
 .navbar{
@@ -140,8 +140,12 @@ body{
 	min-width: 200px;
 	margin: calc(var(--repo-margin)/2);
 	
+	h1{
+		margin: .1em;
+		margin-bottom: .3em;
+		text-align: center;
+	}
 	
-
 	img{
 		width: 100%;
 		border-radius: .5em;
